@@ -35,14 +35,6 @@ public class Employee {
 		this.name = name;
 	}
 
-	/*
-	 * public Timestamp getSwipeIn() { return swipeIn; } public void
-	 * setSwipeIn(Timestamp swipeIn) { this.swipeIn = swipeIn; } public Timestamp
-	 * getSwipeOut() { return swipeOut; } public void setSwipeOut(Timestamp
-	 * swipeOut) { this.swipeOut = swipeOut; } public Date getSwipeDate() { return
-	 * swipeDate; } public void setSwipeDate(Date swipeDate) { this.swipeDate =
-	 * swipeDate; }
-	 */
 	public String getLocationName() {
 		return locationName;
 	}

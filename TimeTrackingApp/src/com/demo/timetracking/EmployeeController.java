@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Employee")
 public class EmployeeController {
 	
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/save", method = RequestMethod.POST,headers="Accept=application/json")
 	public void saveEmployee(@RequestBody Employee emp) {
 		
 	}
 	
-	@RequestMapping(value = "/get", method = RequestMethod.GET)
-	public Employee getEmployee(@RequestParam(value = "key") String key, @RequestBody Employee emp) {
+	@RequestMapping(value = "/get", method = RequestMethod.GET,headers="Accept=application/json")
+	public Employee getEmployee(@RequestParam(value = "empID") String empId) {
 		return new Employee();
 	}
 	
