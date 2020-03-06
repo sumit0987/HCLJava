@@ -36,7 +36,7 @@ public class EmployeeController {
 	     if(rows>0) {
 	          return new ResponseEntity<Employee>(employee, HttpStatus.OK);
 	     }
-	        throw new RuntimeException("Error while creating record");
+	        throw new RuntimeException("EMPLOYEE ERROR");
 	}
 	
 	
@@ -51,7 +51,11 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/employees/swipe")
-	public ResponseEntity<Employee> recordSwipeMovement(@RequestBody SwipeMovement swipeMv) {
-		int rows = 
+	public ResponseEntity<SwipeMovement> recordSwipeMovement(@RequestBody SwipeMovement swipeMv) {
+		int rows = empService.saveSwipe(swipeMv);
+		if(rows>0) {
+	          return new ResponseEntity<SwipeMovement>(swipeMv, HttpStatus.OK);
+	     }
+	        throw new RuntimeException("SWIPE ERROR");
 	}
 }

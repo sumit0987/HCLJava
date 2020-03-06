@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.timetracking.employeetimetracking.bean.Employee;
+import com.example.timetracking.employeetimetracking.bean.SwipeMovement;
 import com.example.timetracking.employeetimetracking.dao.EmployeeDao;
 
 @Service
@@ -25,9 +26,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 	
 	@Override
-	public int saveEmployee(Employee emp) {
+	public int saveSwipe(SwipeMovement smv) {
 		// TODO Auto-generated method stub
-		return empDao.save(emp);
+		return empDao.saveSwipeMovement(smv);
 	}
 
 }

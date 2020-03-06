@@ -6,7 +6,7 @@ import java.sql.Date;
 public class SwipeMovement {
 	private int movementId;
 	private Date swipeTime;
-	private String swipeFlag;
+	private String swapFlag;
 	private BigInteger employeeId;
 	
 	public int getMovementId() {
@@ -21,11 +21,11 @@ public class SwipeMovement {
 	public void setSwipeTime(Date swipeTime) {
 		this.swipeTime = swipeTime;
 	}
-	public String getSwipeFlag() {
-		return swipeFlag;
+	public String getSwapFlag() {
+		return swapFlag;
 	}
-	public void setSwipeFlag(String swipeFlag) {
-		this.swipeFlag = swipeFlag;
+	public void setSwapFlag(String swapFlag) {
+		this.swapFlag = swapFlag;
 	}
 	public BigInteger getEmployeeId() {
 		return employeeId;
