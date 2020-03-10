@@ -1,5 +1,7 @@
 package com.example.timetracking.employeetimetracking.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.timetracking.employeetimetracking.Utility.RecordNotFoundException;
 import com.example.timetracking.employeetimetracking.bean.Employee;
 import com.example.timetracking.employeetimetracking.bean.SwipeMovement;
 import com.example.timetracking.employeetimetracking.service.EmployeeService;
@@ -27,7 +30,7 @@ public class EmployeeController {
 	JdbcTemplate jdbcTemplate;
 	
 	@PostMapping("/employees")
-	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
+	public ResponseEntity<Employee> saveEmployee(@Valid @RequestBody Employee employee) {
 		int rows=0;
 		if(employee!=null) {
 			rows = empService.saveEmployee(employee);
@@ -41,11 +44,14 @@ public class EmployeeController {
 	
 	
 	@GetMapping("/employees/{id}")
-	public Employee getEmployeeIdLocation(@PathVariable String id){
-		  
-		 RowMapper<Employee> rowMapper = new BeanPropertyRowMapper<Employee>(Employee.class);
-		 Employee employee = jdbcTemplate.queryForObject("SELECT * FROM employee WHERE id = ?",rowMapper, id);
-		 return employee;
+	public ResponseEntity<?> getEmployeeIdLocation(@PathVariable int id){
+			
+		Employee emp = empService.getEmployee(id);
+		if(emp!=null) {
+	        return new ResponseEntity<Employee>(emp,HttpStatus.OK);
+	    } else {
+	        throw new RecordNotFoundException("Record not found for employee Id :"+id);
+	      }
 		 
 		 
 	}
