@@ -1,7 +1,5 @@
 package com.demo.flightBooking.repository;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -11,7 +9,6 @@ import com.demo.flightBooking.Entity.Flight;
 
 @Repository
 public interface FlightRepository extends CrudRepository<Flight, Integer> {
-	
 	public List<Flight> findAllBySourceAndDestination(String source, String destination);
 
 }

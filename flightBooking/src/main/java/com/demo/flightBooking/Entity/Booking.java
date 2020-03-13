@@ -17,15 +17,55 @@ public class Booking {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "bookingid")
-	private String bookingId;
+	private int bookingId;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "userid", nullable = false)
     private User user;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "userId", nullable = false)
-    private Passenger passenger;
+    @JoinColumn(name = "flightid", nullable = false)
+    private Flight flight;
+	
+	@Column(name = "bookingstatus")
+	private String bookingstatus;
+	
+	public Booking() {
+		
+	}
+	
+	public int getBookingId() {
+		return bookingId;
+	}
+
+	public void setBookingId(int bookingId) {
+		this.bookingId = bookingId;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Flight getFlight() {
+		return flight;
+	}
+
+	public void setFlight(Flight flight) {
+		this.flight = flight;
+	}
+
+	public String getBookingstatus() {
+		return bookingstatus;
+	}
+
+	public void setBookingstatus(String bookingstatus) {
+		this.bookingstatus = bookingstatus;
+	}
+
 	
 	
 }

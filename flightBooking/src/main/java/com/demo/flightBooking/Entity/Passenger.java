@@ -2,9 +2,12 @@ package com.demo.flightBooking.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +25,17 @@ public class Passenger {
 	private String sex;
 	@Column(name = "mealpreference")
 	private String mealPreference;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "bookingid", nullable = false)
+	private Booking booking;
+	
+	public Booking getBooking() {
+		return booking;
+	}
+	public void setBooking(Booking booking) {
+		this.booking = booking;
+	}
 	public int getPassengerId() {
 		return passengerId;
 	}
@@ -51,6 +65,10 @@ public class Passenger {
 	}
 	public void setMealPreference(String mealPreference) {
 		this.mealPreference = mealPreference;
+	}
+	
+	public Passenger() {
+		
 	}
 	
 }

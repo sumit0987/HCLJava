@@ -8,7 +8,7 @@ public class BookingRequest {
 	
 	private int userId;
 	private int flightId;
-	private List<Passenger> passengers;
+	private List<BookingDTO> passengers;
 	
 	public int getUserId() {
 		return userId;
@@ -22,10 +22,10 @@ public class BookingRequest {
 	public void setFlightId(int flightId) {
 		this.flightId = flightId;
 	}
-	public List<Passenger> getPassengers() {
+	public List<BookingDTO> getPassengers() {
 		return passengers;
 	}
-	public void setPassengers(List<Passenger> passengers) {
+	public void setPassengers(List<BookingDTO> passengers) {
 		this.passengers = passengers;
 	}
 	

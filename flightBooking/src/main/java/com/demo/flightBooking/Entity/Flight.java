@@ -67,6 +67,8 @@ public class Flight {
 	//public void setDepartureTime(LocalDate departureTime) {
 	//	this.departureTime = departureTime;
 	//}
-	
+	public Flight() {
+		
+	}
 	
 }
