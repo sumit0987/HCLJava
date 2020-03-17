@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.flightBooking.entity.Address;
 import com.demo.flightBooking.entity.User;
 import com.demo.flightBooking.service.UserService;
 
@@ -26,6 +27,12 @@ public class UserController {
 	@GetMapping("/users")
 	public List<User> getUsers() {
 			return userService.getAllUsers();
+		 
+	}
+	
+	@PostMapping("/address")
+	public String saveAddress(@RequestBody Address address) {
+			return userService.saveAddress(address);
 		 
 	}
 }
