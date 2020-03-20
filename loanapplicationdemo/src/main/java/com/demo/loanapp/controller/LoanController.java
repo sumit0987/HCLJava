@@ -44,20 +44,6 @@ public class LoanController {
 	@Autowired
 	Job job;
 	
-//	@GetMapping("/load")
-//	public BatchStatus load() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, JobParametersInvalidException {
-//		Map<String, JobParameter> parameters=new HashMap<>();
-//		parameters.put("time", new JobParameter(System.currentTimeMillis()));
-//		JobParameters jobParameters=new JobParameters(parameters);
-//		JobExecution jobExecution = jobLauncher.run(job, jobParameters);
-//		System.out.println("JobExecution:  "+jobExecution.getStatus());
-//		if(jobExecution.isRunning()) {
-//			System.out.println("running-----------------");
-//		}
-//
-//	return jobExecution.getStatus();
-//	}
-	
 	@PostMapping("")
 	public ResponseEntity<LoanDetails> applyLoan(@RequestBody LoanDto loanDto) {
 			LoanDetails loanDetails = loanService.applyLoan(loanDto);
